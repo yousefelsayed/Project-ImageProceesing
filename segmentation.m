@@ -1,6 +1,10 @@
-function [ imgout ] = segmentation( inputimg )
+function [ ] = segmentation( inputimg )
 
-plot::line2d(1,2],[3,-1]);
-
+Lc = bwlabel(inputimg);
+stats = regionprops(Lc,'all');
+[x y] = size(stats);
+for i=1:x
+    figure, imshow(stats(i).Image);
 end
 
+end
